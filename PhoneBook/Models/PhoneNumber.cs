@@ -4,5 +4,6 @@ namespace PhoneBook.Models
     {
         public int Id { get; set; }
         public string Number { get; set; }
+        public Contact Contacts { get; set; }
     }
 }
