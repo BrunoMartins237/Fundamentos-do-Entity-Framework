@@ -22,6 +22,13 @@ namespace PhoneBook.Data.Mapping
                 .HasColumnName("Name")
                 .HasColumnType("NVARCHAR")
                 .HasMaxLength(80);
+            
+            // para adicionar essa coluna [email] no banco, é preciso executar uma migration e depos atualizar.
+            builder.Property(x => x.Email)
+                .IsRequired()
+                .HasColumnName("Email")
+                .HasColumnType("NVARCHAR")
+                .HasMaxLength(80);
 
             //indices
             builder.HasIndex(x => x.Name, "IX_Contact_Name")

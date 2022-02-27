@@ -1,4 +1,6 @@
 ﻿using System;
+using PhoneBook.Data;
+using PhoneBook.Models;
 
 namespace PhoneBook
 {
@@ -6,7 +8,18 @@ namespace PhoneBook
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+           
+            // var contact = new Contact
+            // {
+            //     Name = "Bruno",
+            //     Email = "bruno@hotmail.on"
+            // };
+            
+            // using var context = new PhoneBookDataContext();
+            // context.Contacts.Add(contact);
+            // context.SaveChanges();
+
+        
         }
     }
 }
