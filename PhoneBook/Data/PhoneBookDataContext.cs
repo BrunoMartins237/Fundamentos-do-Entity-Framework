@@ -8,7 +8,9 @@ namespace PhoneBook.Data
     {
         public DbSet<Contact> Contacts { get; set; }
 
-        public DbSet<PhoneNumber> MyProperty { get; set; }
+        public DbSet<PhoneNumber> PhoneNumbers { get; set; }
+
+        public DbSet<Category> Categories { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options.UseSqlServer("Server=localhost,1433;Database=phonebook;User ID=sa;Password=1q2w3e4r@#$");
 
@@ -17,6 +19,7 @@ namespace PhoneBook.Data
         {
             modelBuilder.ApplyConfiguration(new ContactMap());
             modelBuilder.ApplyConfiguration(new PhoneNumberMap());
+            modelBuilder.ApplyConfiguration(new CategoryMap());
         }
     }
 }

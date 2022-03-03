@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using PhoneBook.Models;
@@ -34,7 +35,25 @@ namespace PhoneBook.Data.Mapping
             builder.HasIndex(x => x.Name, "IX_Contact_Name")
                 .IsUnique();
 
-            //relacionamentos
+            //relacionamentos many to many
+            builder
+            .HasMany(x => x.Categories)
+            .WithMany(x => x.Contacts)
+            .UsingEntity<Dictionary<string, object>>(
+                "ContactCategory",
+                category => category
+                .HasOne<Category>()
+                .WithMany()
+                .HasConstraintName("CategoryId")
+                .HasForeignKey("FK_ContactCategory_CategoryId")
+                .OnDelete(DeleteBehavior.Cascade),
+                contact => contact
+                .HasOne<Contact>()
+                .WithMany()
+                .HasConstraintName("ContactId")
+                .HasForeignKey("FK_ContactCategory_ContactId")
+                .OnDelete(DeleteBehavior.Cascade)
+            );
         } 
     }
 }
