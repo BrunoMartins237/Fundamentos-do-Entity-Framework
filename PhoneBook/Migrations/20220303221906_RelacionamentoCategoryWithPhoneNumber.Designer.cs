@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PhoneBook.Data;
 
 namespace PhoneBook.Migrations
 {
     [DbContext(typeof(PhoneBookDataContext))]
-    partial class PhoneBookDataContextModelSnapshot : ModelSnapshot
+    [Migration("20220303221906_RelacionamentoCategoryWithPhoneNumber")]
+    partial class RelacionamentoCategoryWithPhoneNumber
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -138,7 +140,7 @@ namespace PhoneBook.Migrations
                     b.HasOne("PhoneBook.Models.Category", "Categories")
                         .WithMany("PhoneNumbers")
                         .HasForeignKey("CategoriesId")
-                        .HasConstraintName("Fk_PhoneNumber_Category")
+                        .HasConstraintName("Fk_PhoneNumner_Contact")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("PhoneBook.Models.Contact", "Contacts")

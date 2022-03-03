@@ -14,5 +14,7 @@ namespace PhoneBook.Models
         public string Name { get; set; }
         
         public IList<Contact> Contacts { get; set; }
+
+        public IList<PhoneNumber> PhoneNumbers { get; set; }
     }
 }

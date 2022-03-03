@@ -26,7 +26,12 @@ namespace PhoneBook.Data.Mapping
             builder.HasOne(x => x.Contacts)
                 .WithMany(x => x.PhoneNumbers)
                 .HasConstraintName("FK_PhoneNumber_Contact")
-                .OnDelete(DeleteBehavior.SetNull);
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.Categories)
+                .WithMany(x => x.PhoneNumbers)
+                .HasConstraintName("Fk_PhoneNumber_Category")
+                .OnDelete(DeleteBehavior.Cascade);
         }
 
        
